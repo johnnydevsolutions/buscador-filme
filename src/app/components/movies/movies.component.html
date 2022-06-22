@@ -1,0 +1,16 @@
+<div class="app">
+  <h1>Lista de Filmes</h1>
+  <div class="search">
+    <input type="text" #movieSearchInput placeholder="Buscar filme">
+    <img src="../../../assets/search.svg" alt="search">
+
+  </div>
+    <!--Container-->
+  <div *ngIf="(movies$ | async) as movies ; else empty" class="container">
+    <app-card-movie *ngFor="let movie of movies" [movie]="movie" ></app-card-movie>
+  </div>
+  <ng-template #empty class="empty">
+    <h3>O filme buscado não foi encontrado.</h3>
+</ng-template>
+
+  </div>
